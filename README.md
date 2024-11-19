@@ -65,7 +65,7 @@ The live application can be accessed at: [**Deployment Link**](https://your-depl
 
 ## 4. Screenshot Running `npm run test`
 Below is a screenshot of running tests successfully:
-![npm test](./screenshots/jest-test.png)
+![npm test](./jest-test.png)
 
 ---
 
