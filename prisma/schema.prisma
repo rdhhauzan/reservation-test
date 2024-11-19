@@ -14,19 +14,35 @@ datasource db {
 }
 
 model Customer {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  phone     String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           Int           @id @default(autoincrement())
+  name         String
+  email        String        @unique
+  phone        String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  reservations Reservation[]
 }
 
 model Table {
-  id           Int      @id @default(autoincrement())
-  tableNumber  String   @unique
+  id           Int           @id @default(autoincrement())
+  tableNumber  String        @unique
   capacity     Int
-  isAvailable  Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  isAvailable  Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  reservations Reservation[]
+}
+
+model Reservation {
+  id            Int       @id @default(autoincrement())
+  customerId    Int
+  customer      Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  tableId       Int
+  table         Table     @relation(fields: [tableId], references: [id], onDelete: Cascade)
+  startTime     DateTime
+  endTime       DateTime
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@index([tableId, startTime, endTime], name: "reservation_time_slot")
 }
