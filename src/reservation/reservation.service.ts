@@ -3,13 +3,15 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { ReservationRepository } from './repositories/reservation.repository';
 import { MailerService } from '@nestjs-modules/mailer';
+import { CustomerRepository } from 'src/customer/repositories/customer.repository';
+import { TableRepository } from 'src/table/repositories/table.repository';
 
 @Injectable()
 export class ReservationService {
   private readonly openHour = 10; // 10 AM
   private readonly closeHour = 22; // 10 PM
 
-  constructor(private readonly prisma: PrismaService, private readonly reservationRepository: ReservationRepository, private readonly mailService: MailerService) { }
+  constructor(private readonly prisma: PrismaService, private readonly reservationRepository: ReservationRepository, private readonly customerRepository: CustomerRepository, private readonly tableRepository: TableRepository, private readonly mailService: MailerService) { }
 
   async createReservation(dto: CreateReservationDto) {
     const { customerId, tableId, startTime, endTime } = dto;
@@ -19,6 +21,26 @@ export class ReservationService {
 
     if (start.getHours() < this.openHour || end.getHours() >= this.closeHour) {
       throw new BadRequestException('Reservations must be made during open hours.');
+    }
+
+    const isCustomerExistInDatabase = await this.customerRepository.findById(customerId)
+
+    if (!isCustomerExistInDatabase) {
+      throw new BadRequestException('Customer not found');
+    }
+
+    const isTableExistInDatabase = await this.tableRepository.findById(tableId)
+
+    if (!isTableExistInDatabase) {
+      throw new BadRequestException('Table not found');
+    }
+
+    console.log(isTableExistInDatabase)
+
+    const isTableAvailable = isTableExistInDatabase?.isAvailable
+
+    if (!isTableAvailable) {
+      throw new BadRequestException('Table is not available');
     }
 
     const conflict = await this.reservationRepository.findConflictingReservation(
@@ -38,6 +60,7 @@ export class ReservationService {
       endTime: end,
     });
 
+    await this.reservationRepository.setTableToNotAvailable(tableId)
     await this.sendConfirmationEmail(customerId, reservation);
 
     return reservation;

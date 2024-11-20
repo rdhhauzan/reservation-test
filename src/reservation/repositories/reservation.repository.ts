@@ -10,6 +10,14 @@ export class ReservationRepository {
     return this.prisma.reservation.create({ data });
   }
 
+  async setTableToNotAvailable(tableId: number) {
+    return this.prisma.table.update({
+      where: { id: tableId },
+      data: { isAvailable: false },
+    });
+  }
+
+
   async findConflictingReservation(
     tableId: number,
     startTime: Date,
