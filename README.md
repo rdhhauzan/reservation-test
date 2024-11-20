@@ -134,6 +134,7 @@ Below is a screenshot of running tests successfully:
 
 | **Route**                 | **Method** | **Description**                   | **Request Body**                                                                              |
 |---------------------------|------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------|
+| `/swagger-ui`             | GET        | Access Swagger UI.              |  -                                                          |
 | `/customer`               | POST       | Add a new customer.              | `name`, `email`, `phone`                                                             |
 | `/customer`               | GET        | Get all customers.               | -                                                                                                                |
 | `/customer/:id`           | GET        | Get a customer by ID.            | -                                                                                                                |
