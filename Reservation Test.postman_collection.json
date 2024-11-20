@@ -1,0 +1,337 @@
+{
+	"info": {
+		"_postman_id": "833cfbda-06e3-47ad-9553-b49b099ccd8a",
+		"name": "Reservation Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17959065"
+	},
+	"item": [
+		{
+			"name": "Post Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Test2323",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "t222222est@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "0839943432",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/customer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/customer",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Customer By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/customer/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Customer by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "bwabwabwbawa",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "jsdhfjhkfsdjhkb@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "9232323",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/customer/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"customer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Customer by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/customer/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"customer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tableNumber",
+							"value": "A122",
+							"type": "text"
+						},
+						{
+							"key": "capacity",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "isAvailable",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/table",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"table"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Table",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/table",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"table"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Table by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/table/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"table",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Table by id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "tableNumber",
+							"value": "A71",
+							"type": "text"
+						},
+						{
+							"key": "capacity",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "isAvailable",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/table/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"table",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Table by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/table/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"table",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "customerId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "tableId",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "startTime",
+							"value": "2024-11-31T11:50:00Z",
+							"type": "text"
+						},
+						{
+							"key": "endTime",
+							"value": "2024-12-21T11:00:00Z",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/reservation",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"reservation"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://reservation-test-production.up.railway.app",
+			"type": "string"
+		}
+	]
+}
