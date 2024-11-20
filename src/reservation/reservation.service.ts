@@ -60,7 +60,6 @@ export class ReservationService {
       endTime: end,
     });
 
-    await this.reservationRepository.setTableToNotAvailable(tableId)
     await this.sendConfirmationEmail(customerId, reservation);
 
     return reservation;
