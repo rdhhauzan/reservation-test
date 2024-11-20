@@ -115,7 +115,7 @@ The application uses the following technologies:
 ---
 
 ## 3. Deployment Link
-The live application can be accessed at: [**Deployment Link**](https://your-deployment-url.com)
+The live application can be accessed at: [**Deployment Link**](https://reservation-test-production.up.railway.app/)
 
 ---
 
