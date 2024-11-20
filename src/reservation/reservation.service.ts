@@ -19,7 +19,7 @@ export class ReservationService {
     const start = new Date(startTime);
     const end = new Date(endTime);
 
-    if (start.getHours() < this.openHour || end.getHours() >= this.closeHour) {
+    if (start.getHours() < this.openHour || end.getHours() > this.closeHour) {
       throw new BadRequestException('Reservations must be made during open hours.');
     }
 
