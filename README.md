@@ -119,13 +119,18 @@ The live application can be accessed at: [**Deployment Link**](https://reservati
 
 ---
 
-## 4. Screenshot Running `npm run test`
+## 4. Postman Collection
+The Postman Collection can be accessed at: [**Postman Collection Link**](https://elements.getpostman.com/redirect?entityId=17959065-833cfbda-06e3-47ad-9553-b49b099ccd8a&entityType=collection) Or in [**Postman Collection File**](./Reservation%20Test.postman_collection.json)
+
+---
+
+## 5. Screenshot Running `npm run test`
 Below is a screenshot of running tests successfully:
 ![npm test](./jest-test.png)
 
 ---
 
-## 5. API Routes
+## 6. API Routes
 
 | **Route**                 | **Method** | **Description**                   | **Request Body**                                                                              |
 |---------------------------|------------|-----------------------------------|------------------------------------------------------------------------------------------------------------------|
